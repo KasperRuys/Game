@@ -52,3 +52,30 @@ C:\Users\kruys\Documents\Visual Studio 2015\Projects\GameWorld - Copy\GameWorld\
 C:\Users\kruys\Documents\Visual Studio 2015\Projects\GameWorld - Copy\GameWorld\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\kruys\Documents\Visual Studio 2015\Projects\GameWorld - Copy\GameWorld\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\kruys\Documents\Visual Studio 2015\Projects\GameWorld - Copy\GameWorld\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\Content\Player.xnb
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\Content\Tile1.xnb
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\Content\Tile2.xnb
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\Content\Tile3.xnb
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\GameWorld.exe
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\GameWorld.pdb
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\MonoGame.Framework.dll
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.dll
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.XInput.dll
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\MonoGame.Framework.xml
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.xml
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\SharpDX.XInput.xml
+J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.csprojAssemblyReference.cache
+J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.csproj.CoreCompileInputs.cache
+J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.csproj.CopyComplete
+J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.exe
+J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.pdb

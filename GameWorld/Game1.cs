@@ -15,10 +15,10 @@ namespace GameWorld
 
         Camera camera;
         Map level;
-
+        List<Spike> spikes;
         Enemy enemy;
 
-        Map map;
+        //Map map;
         Player player;
         public Game1()
         {
@@ -36,8 +36,10 @@ namespace GameWorld
         {
             // TODO: Add your initialization logic here
             
-            map = new Map();
+            level = new Map();
             player = new Player();
+            enemy = new Enemy();
+            
             base.Initialize();
         }
 
@@ -50,13 +52,14 @@ namespace GameWorld
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             IsMouseVisible = true;
-            enemy = new Enemy(Content.Load<Texture2D>("Player"), new Vector2(400, 400), 1000);
+            //enemy = new Enemy(Content.Load<Texture2D>("Player"), new Vector2(900, 100),150);
         
             Tiles.Content = Content;
             Texture2D blokText = Content.Load<Texture2D>("Tile1");
             camera = new Camera(GraphicsDevice.Viewport);
 
-            map.Generate(new int[,]{
+            level.Level2();
+            /*map.Generate(new int[,]{
                 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -66,12 +69,12 @@ namespace GameWorld
                 { 0,1,1,0,0,1,2,2,2,0,0,0,0,0,0,0,0,0},
                 { 1,2,2,3,3,2,2,2,2,2,2,2,3,2,1,3,2,1},
                
-            }, 64);
+            }, 64);*/
 
-          /*  level = new Map();
-            level.texture = blokText;
-            level.CreateWorld();*/
-
+            /*  level = new Map();
+              level.texture = blokText;
+              level.CreateWorld();*/
+            enemy.Load(Content);
             player.Load(Content);
             // TODO: use this.Content to load your game content here
         }
@@ -93,12 +96,15 @@ namespace GameWorld
         protected override void Update(GameTime gameTime)
         {
             player.Update(gameTime);
-            foreach (CollisionTiles tile in map.CollisionTiles)
+            enemy.Update(gameTime, player);
+            foreach (CollisionTiles tile in level.CollisionTiles)
             {
-                player.Collision(tile.Rectangle, map.Width, map.Height);
-                camera.Update(player.Position, map.Width, map.Height);
+                player.Collision(tile.Rectangle, level.Width, level.Height, enemy);
+                camera.Update(player.Position, level.Width, level.Height);
+                enemy.Collision(tile.Rectangle, level.Width, level.Height);
+                
             }
-            enemy.Update(player);
+            
             base.Update(gameTime);
         }
 
@@ -115,7 +121,7 @@ namespace GameWorld
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null,camera.Transform);
             
             enemy.Draw(spriteBatch);
-            map.Draw(spriteBatch);
+            level.Draw(spriteBatch);
             player.Draw(spriteBatch);
             spriteBatch.End();
 

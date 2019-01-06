@@ -13,7 +13,7 @@ namespace GameWorld
     class Player
     {
         private Texture2D texture;
-        private Vector2 position = new Vector2(150,384);
+        private Vector2 position = new Vector2(800,384);
         private Vector2 velocity;
         private Rectangle rectangle;
         public Color[] textureData { get; set; }
@@ -29,16 +29,20 @@ namespace GameWorld
         public void Load(ContentManager Content)
         {
             texture = Content.Load<Texture2D>("Player");
+            textureData = new Color[texture.Width * texture.Height];
+            texture.GetData(textureData);
         }
 
         public void Update(GameTime gameTime)
         {
             position += velocity;
+            
             rectangle = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
-
+            
             Input(gameTime);
             if (velocity.Y < 10)
             {
+                hasJumped = true;
                 velocity.Y += 0.7f;
             }
 
@@ -68,7 +72,7 @@ namespace GameWorld
             }
         }
 
-        public void Collision(Rectangle newRectangle, int xOffset, int Yoffset)
+        public void Collision(Rectangle newRectangle, int xOffset, int Yoffset, Enemy enemy)
         {
             if (rectangle.TouchTopOf(newRectangle))
             {
@@ -83,30 +87,28 @@ namespace GameWorld
             }
             if (rectangle.TouchRightOf(newRectangle))
             {
-                position.X = newRectangle.X + rectangle.Width + 8; // moet niet 2 zijn verander dit als je problemen hebt. hangt af van sprite.
+                position.X = newRectangle.X + rectangle.Width +8; // moet niet 2 zijn verander dit als je problemen hebt. hangt af van sprite.
             }
             if (rectangle.TouchBottomOf(newRectangle))
             {
                 velocity.Y = 1f;
             }
+            if(IntersectsPixel(this.rectangle, this.textureData, enemy.rectangle, enemy.textureData))
+            {
+                position = new Vector2(150,300);
+            }
 
             if (position.X < 0) position.X = 0;
             if (position.X > xOffset - rectangle.Width) position.X = xOffset - rectangle.Width;
-            if (position.Y < 0) velocity.Y = 1f;
+            if (position.Y < 0) { velocity.Y = 1f; }
             if (position.Y > Yoffset - rectangle.Height) position.Y = Yoffset - rectangle.Height;
 
-          /*  foreach (var Spike in spikes)
-            {
-                if (IntersectsPixel(this.rectangle, this.textureData, Spike.Rectangle, Spike.textureData))
-                {
-                    hasDied = true;
-                }
-            }*/
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, rectangle, Color.White);
+           spriteBatch.Draw(texture, rectangle, Color.White);
         }
 
         private static bool IntersectsPixel(Rectangle rect1, Color[] data1,
@@ -121,7 +123,7 @@ namespace GameWorld
             {
                 for (int x = left; x < right; x++)
                 {
-                    Color color1 = data1[(x - rect1.Left) + (y - rect1.Top) * rect1.Width];
+                    Color color1 = data1[((x - rect1.Left) + (y - rect1.Top) * rect1.Width)];
                     Color color2 = data2[(x - rect2.Left) + (y - rect2.Top) * rect2.Width];
                     if (color1.A != 0 && color2.A != 0)
                         return true;

@@ -21,6 +21,8 @@ namespace GameWorld
             position.Y = rectangle.Y;
             textureData = new Color[texture.Width * texture.Height];
             texture.GetData(textureData);
+            
+            
         }
 
         public Rectangle Rectangle
