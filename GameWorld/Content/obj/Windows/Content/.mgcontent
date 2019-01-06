@@ -4,12 +4,18 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>J:/KasperGame/Game/GameWorld/Content/Controls/3bollen.png</File>
+    <File>J:/KasperGame/Game/GameWorld/Content/Fonts/Font.spritefont</File>
     <File>J:/KasperGame/Game/GameWorld/Content/Player.png</File>
-    <File>J:/KasperGame/Game/GameWorld/Content/Tile2.png</File>
     <File>J:/KasperGame/Game/GameWorld/Content/Tile1.png</File>
+    <File>J:/KasperGame/Game/GameWorld/Content/Tile2.png</File>
     <File>J:/KasperGame/Game/GameWorld/Content/Tile3.png</File>
+    <File>J:/KasperGame/Game/GameWorld/Content/Tile4.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

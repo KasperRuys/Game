@@ -33,7 +33,7 @@ namespace GameWorld
             texture = Content.Load<Texture2D>("Player");
             textureData = new Color[texture.Width * texture.Height];
             texture.GetData(textureData);
-
+            
             position = new Vector2(900, 384);
             distance = 1000;
 

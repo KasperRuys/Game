@@ -79,3 +79,6 @@ J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.csproj.CoreCompileInputs.ca
 J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.csproj.CopyComplete
 J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.exe
 J:\KasperGame\Game\GameWorld\obj\x86\Debug\GameWorld.pdb
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\Content\Fonts\Font.xnb
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\Content\Controls\3bollen.xnb
+J:\KasperGame\Game\GameWorld\bin\Windows\x86\Debug\Content\Tile4.xnb

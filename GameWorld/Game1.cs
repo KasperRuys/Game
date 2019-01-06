@@ -52,31 +52,16 @@ namespace GameWorld
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             IsMouseVisible = true;
-            //enemy = new Enemy(Content.Load<Texture2D>("Player"), new Vector2(900, 100),150);
-        
+            
             Tiles.Content = Content;
             Texture2D blokText = Content.Load<Texture2D>("Tile1");
             camera = new Camera(GraphicsDevice.Viewport);
 
             level.Level2();
-            /*map.Generate(new int[,]{
-                { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                { 0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0},
-                { 0,0,0,0,0,0,0,1,2,1,0,0,0,0,0,0,0,0},
-                { 0,0,0,0,0,0,1,2,2,0,1,0,0,0,0,0,0,0},
-                { 0,1,1,0,0,1,2,2,2,0,0,0,0,0,0,0,0,0},
-                { 1,2,2,3,3,2,2,2,2,2,2,2,3,2,1,3,2,1},
-               
-            }, 64);*/
-
-            /*  level = new Map();
-              level.texture = blokText;
-              level.CreateWorld();*/
+            
             enemy.Load(Content);
             player.Load(Content);
-            // TODO: use this.Content to load your game content here
+            
         }
 
         /// <summary>
@@ -99,7 +84,7 @@ namespace GameWorld
             enemy.Update(gameTime, player);
             foreach (CollisionTiles tile in level.CollisionTiles)
             {
-                player.Collision(tile.Rectangle, level.Width, level.Height, enemy);
+                player.Collision(tile.Rectangle,level.Width, level.Height, enemy);
                 camera.Update(player.Position, level.Width, level.Height);
                 enemy.Collision(tile.Rectangle, level.Width, level.Height);
                 

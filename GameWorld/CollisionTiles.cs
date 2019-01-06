@@ -15,6 +15,7 @@ namespace GameWorld
             texture = Content.Load<Texture2D>("Tile" + tileId);
            
             this.Rectangle = newRectangle;
+            
         }
     }
 }

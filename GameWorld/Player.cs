@@ -13,12 +13,13 @@ namespace GameWorld
     class Player
     {
         private Texture2D texture;
-        private Vector2 position = new Vector2(800,384);
+        private Vector2 position = new Vector2(400,384);
         private Vector2 velocity;
         private Rectangle rectangle;
         public Color[] textureData { get; set; }
         private bool hasJumped = false;
         public bool hasDied = false;
+        private bool looksRight = false;
         public Vector2 Position
         {
             get { return position; }
@@ -54,10 +55,12 @@ namespace GameWorld
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 velocity.X = (float)gameTime.ElapsedGameTime.TotalMilliseconds / 3;
+                looksRight = true;
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 velocity.X = -(float)gameTime.ElapsedGameTime.TotalMilliseconds / 3;
+                looksRight = false;
             }
             else
             {
@@ -93,9 +96,10 @@ namespace GameWorld
             {
                 velocity.Y = 1f;
             }
-            if(IntersectsPixel(this.rectangle, this.textureData, enemy.rectangle, enemy.textureData))
+            
+            if (IntersectsPixel(this.rectangle, this.textureData, enemy.rectangle, enemy.textureData))
             {
-                position = new Vector2(150,300);
+                position = new Vector2(150, 300);
             }
 
             if (position.X < 0) position.X = 0;
@@ -109,6 +113,19 @@ namespace GameWorld
         public void Draw(SpriteBatch spriteBatch)
         {
            spriteBatch.Draw(texture, rectangle, Color.White);
+            if (velocity.X > 0 && looksRight == true)
+            {
+                //spriteBatch.Draw(texture, position, null, Color.Red, rotation, origin, 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(texture, rectangle, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0f);
+                //spriteBatch.Draw()
+
+            }
+            if (looksRight == false)
+            {
+                //spriteBatch.Draw(texture, position, null, Color.Red, rotation, origin, 1f, SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(texture, rectangle, null, Color.White, 0f, new Vector2(0,0), SpriteEffects.FlipHorizontally, 0f);
+
+            }
         }
 
         private static bool IntersectsPixel(Rectangle rect1, Color[] data1,
